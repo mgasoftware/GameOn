@@ -14,7 +14,8 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  /* problème sur le lien du background */
+  /* background-image: url("../bg_img.jpg"); */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -56,12 +57,19 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  /* ajout du surlignement */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
 }
 
 .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
 }
 
 .topnav .icon {
@@ -226,12 +234,12 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
+
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
-} */
+} 
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -405,7 +413,9 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  /* minimum height supprimé car ne corresponds pas a la maquette et ajout d'un max height */
+  /* min-height: 93vh; */
+  max-height: 657px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -527,3 +537,40 @@ footer {
   }
 }
 
+/* validation du formulaire */
+
+.submit-confirmation-container {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #232323;
+}
+
+.submit-confirmation-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-confirmation__message {
+  margin: auto;
+}
+
+.submit-confirmation__btn {
+  background: #fe142f;
+  display: block;
+  margin: 0 auto;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 12px 82px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  margin-bottom: 1em;
+}
