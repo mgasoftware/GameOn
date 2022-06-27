@@ -58,7 +58,7 @@
           <form id="form" name="reserve" action="index.html" method="get">
             <div class="formData" data-error="Vous devez entrer 2 caractères ou plus." data-error-visible="false">
               <label>Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+              <input class="text-control" type="text" id="first" name="first" /><br>
             </div>
             <div class="formData" data-error="Vous devez entrer 2 caractères ou plus." data-error-visible="false">
               <label>Nom</label><br>
@@ -77,7 +77,7 @@
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
             </div>
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-            <div class="formData" data-error="Vous devez choisir une option." data-error-visible="false">
+            <div class="formData" id="allLocation" data-error="Vous devez choisir une option." data-error-visible="false">
               <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
@@ -104,7 +104,7 @@
                 Portland</label>
             </div>
 
-            <div class="formData">
+            <div class="formData" data-error="Vous devez accepter les CGU." data-error-visible="false">
               <!-- checked enlevé par default -->
               <input class="checkbox-input" type="checkbox" id="checkbox1" />
               <label class="checkbox2-label" for="checkbox1" required>
