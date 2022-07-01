@@ -22,7 +22,9 @@ const quantityTournament = document.getElementById('quantity');
 const checkboxLocation = document.getElementById('allLocation');
 const locations = document.querySelectorAll('#allLocation .checkbox-input');
 const cguValid = document.getElementById('checkbox1');
+const checkbox2 = document.getElementById('checkbox2');
 const closeBtn = document.getElementsByClassName('submit-confirmation__btn');
+const inputs = document.querySelectorAll('#first, #last, #email, #birthdate, #quantity');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -37,7 +39,6 @@ function closeForm() {
   modalbg.style.display = "none";
 }
 close[0].addEventListener('click', closeForm);
-close[1].addEventListener('click', closeForm);
 
 // first and last name check
 function checkFirstName() {
@@ -48,6 +49,8 @@ function checkFirstName() {
   firstName.parentElement.setAttribute('data-error-visible', 'false');
   return true;
 }
+firstName.addEventListener('change', checkFirstName);
+
 function checkLastName() {
   if (lastName.value.trim().length < 2 || lastName.value.trim() == '') {
     lastName.parentElement.setAttribute('data-error-visible', 'true');
@@ -56,6 +59,7 @@ function checkLastName() {
   lastName.parentElement.setAttribute('data-error-visible', 'false');
   return true;
 }
+lastName.addEventListener('change', checkLastName);
 
 // email check
 function checkEmail() {
@@ -67,6 +71,7 @@ function checkEmail() {
   email.parentElement.setAttribute('data-error-visible', 'true');
   return false;
 }
+email.addEventListener('change', checkEmail);
 
 //birthdate check
 function checkBirthDate() {
@@ -77,6 +82,7 @@ function checkBirthDate() {
   birthDate.parentElement.setAttribute('data-error-visible', 'false');
   return true;
 }
+birthDate.addEventListener('mouseleave', checkBirthDate);
 
 //tournament quantity check
 function checkQuantityTournament() {
@@ -87,6 +93,7 @@ function checkQuantityTournament() {
   quantityTournament.parentElement.setAttribute('data-error-visible', 'false');
   return true;
 }
+quantityTournament.addEventListener('mouseleave', checkQuantityTournament);
 
 //location check
 function checkCheckboxLocation() {
@@ -99,6 +106,7 @@ function checkCheckboxLocation() {
   }
   return false;
 }
+checkboxLocation.addEventListener('mouseleave', checkCheckboxLocation);
 
 //CGU check
 function checkCGUValid() {
@@ -109,6 +117,7 @@ function checkCGUValid() {
   cguValid.parentElement.setAttribute('data-error-visible', 'true');
   return false;
 }
+cguValid.addEventListener('click', checkCGUValid);
 
 //function who scan the forms entry
 function checkAll() {
@@ -141,5 +150,19 @@ const formSubmit = e => {
 
 form.addEventListener('submit', formSubmit);
 
-//close form button when is end
-closeBtn[0].addEventListener('click', closeForm);
+//close form button when is end and reset it
+function resetForm() {
+  confirmationModal.style.display = 'none';
+  modalbg.style.display = 'none';
+  inputs.forEach(input => {
+    input.value = '';
+    console.log(input);
+  });
+  for (let i = 0; i < locations.length; i++) {
+    locations[i].checked = false;
+  }
+  cguValid.checked = false;
+  checkbox2.checked = false;
+}
+close[1].addEventListener('click', resetForm);
+closeBtn[0].addEventListener('click', resetForm);
