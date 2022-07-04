@@ -79,7 +79,7 @@ function checkBirthDate() {
   var year = Number(birthDate.value.trim().slice(0, 4));
   if (birthDate.value.trim().length !== 10 || (year >= currentYear.getFullYear())) {
     birthDate.parentElement.setAttribute('data-error-visible', 'true');
-    return false
+    return false;
   }
   birthDate.parentElement.setAttribute('data-error-visible', 'false');
   return true;

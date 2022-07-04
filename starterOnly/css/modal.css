@@ -417,9 +417,8 @@ input[data-error]::after {
   font-size: 14px;
 }
 .hero-section {
-  /* minimum height supprimé car ne corresponds pas a la maquette et ajout d'un max height */
+  /* minimum height supprimé car ne corresponds pas a la maquette */
   /* min-height: 93vh; */
-  max-height: auto;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
